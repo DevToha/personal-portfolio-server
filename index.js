@@ -27,8 +27,9 @@ app.post('/send-email', (req, res) => {
         from: email,
         to: process.env.EMAIL,
         subject: `Message from ${firstname} ${lastname}`,
-        text: message,
+        text: `Email: ${email}\n\nMessage: ${message}`,
     };
+
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
